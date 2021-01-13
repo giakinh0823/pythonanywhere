@@ -1,0 +1,13 @@
+
+<div id="listcomment">
+    {% for rs in comments %}
+    <div style="text-decoration:none;font-size:1.5rem;margin-top:2rem;"><a href="#">{{rs.user }}</a></div>
+    <div style="padding-bottom:0;">{{rs.subject }}</div>
+    <div style="padding-bottom:none;border-bottom:none;margin:0,0,0,0;font-size:1.5rem;">
+        <p style="margin-bottom:0;">{{rs.content }}</p>
+    </div>
+    <div
+        style="margin-top:0rem;font-size: 1rem;color: rgba(0,0,0,.54);line-height: 1.2;border-bottom: 1px solid rgba(0,0,0,.09);">
+        {{rs.time_create }}</div>
+    {%endfor %}
+</div>

@@ -1,0 +1,259 @@
+{% extends "base/base.html" %}
+{% block block_body %}
+{% load static %}
+
+<!-- 
+<div style="padding-top: 85px;"></div>
+
+<h3>{{userInfo.user.username}}</h3>
+<h3>{{userInfo.first_name}} {{userInfo.last_name}}</h3>
+<h3>{{userInfo.birth_date}}</h3>
+<h3>{{userInfo.site}}</h3>
+{% if userInfo.avatar %}
+<img src="{{userInfo.avatar.url}}" alt=""  class="img-thumbnail">
+{% endif %}
+<a href="{% url 'appUser:editInfo' %}" class="btn btn-primary">Edit Info</a>
+<a href="{% url 'change_password' %}" class="btn btn-primary">change password</a>
+<a href="{% url 'password_reset' %}"  class="btn btn-primary" >password reset</a>
+-->
+<div style="padding-top: 85px;"></div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
+<div class="container">
+    <div class="form__layout">
+        <div class="form__container">
+            <div class="form__header">
+                <header class="form__header--header">
+                    <h1 class="form__header--h1">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Profile</font>
+                        </font>
+                    </h1>
+                </header>
+            </div>
+            <div class="form__form--layout">
+                <div class="form__form--container" style="display: flex; flex-wrap:wrap">
+                    <form action="" method="POST" id="createproduct" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form__form--content" style="max-width:60rem">
+                            <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="text" name="productForm-name" maxlength="256" required=""
+                                                id="id_productForm-name" class="input__text--wrap--input"
+                                                placeholder="{{user}}" disabled>
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="id_productForm-name" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">User name</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="text" name="productForm-name" maxlength="256" required=""
+                                                id="id_productForm-name" class="input__text--wrap--input"
+                                                placeholder="{{userInfo.first_name}} {{userInfo.last_name}}" disabled>
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="id_productForm-name" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">Name</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="text" name="productForm-name" maxlength="256" required=""
+                                                id="id_productForm-name" class="input__text--wrap--input"
+                                                placeholder="{{userInfo.birth_date}}" disabled>
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="id_productForm-name" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">Birthday</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="text" name="productForm-name" maxlength="256" required=""
+                                                id="id_productForm-name" class="input__text--wrap--input"
+                                                placeholder="{{userInfo.phonenumber}}" disabled>
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="id_productForm-name" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">Phone</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="email" name="productForm-name" maxlength="256" required=""
+                                                id="id_productForm-name" class="input__text--wrap--input"
+                                                placeholder="{{user.email}}" disabled>
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">Email</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="email" name="productForm-name" maxlength="256" required=""
+                                                id="id_productForm-name" class="input__text--wrap--input"
+                                                placeholder="{{userInfo.address}}" disabled>
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">Location</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Variants -->
+                            <div class="product__dropdown">
+                                <div class="product__dropdown--container" style="width: 40rem; margin-bottom:2rem">
+                                </div>
+                            </div>
+                            <div class="product__details--size">
+                                <div class="product__details--size--layout">
+                                    <fieldset class="product__details--size--fieldset">
+
+
+                                        <ul style="width:100%; display:flex; flex-wrap:wrap;" id="id_variantsForm-size">
+                                            {% for size in sizes %}
+                                            <li class="product__details--color__color--container">
+                                                <div class="product__details--chip">
+                                                    <img alt="" class="product__details--chip--img">
+                                                    <input type="checkbox" name="variantsForm-size" value="{{size.id}}"
+                                                        id="id_variantsForm-size_{{size.id|add:-1}}"
+                                                        class="product__details--chip--radio"
+                                                        onmouseover="changeSize(this.value)">
+                                                    <label for="id_variantsForm-size_{{size.id|add:-1}}"
+                                                        class="product__details--chip--label">
+                                                        <div class="product__details--chip--label--short">
+                                                            <svg width="100%" height="100%">
+                                                                <line y1="100%" x2="100%" stroke="#DADADA"></line>
+                                                                <line y1="100%" x2="100%" stroke="#1B1B1B"
+                                                                    stroke-opacity="0.6" transform="translate(.5 .5)">
+                                                                </line>
+                                                            </svg>
+                                                        </div>
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">{{size.name}}</font>
+                                                        </font>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                        <p style=" height: 2em; "></p>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="product__image" id="createImageProductList">
+                                {% if imageProductList %}
+                                <fieldset class="product__details--color">
+                                    <div class="product__detail--color__lengend--container">
+                                        <legend class="product__details--legend">
+                                            <label for="" class="product__details--legend--primary">
+                                                <font style="vertical-align:inherit;">
+                                                    <font style="vertical-align:inherit;">Image</font>
+                                                </font>
+                                                <font style="vertical-align:inherit;">
+                                                    <font style="vertical-align:inherit;">: </font>
+                                                </font>
+                                            </label>
+                                            <!-- <label for="" class="product__details--legend--secondary">
+                                                <font style="vertical-align:inherit;">
+                                                    <font style="vertical-align:inherit;">03 Xám</font>
+                                                </font>
+                                            </label> -->
+                                        </legend>
+                                    </div>
+                                    <p style=" height: 2em; "></p>
+                                </fieldset>
+                                {% else %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                    <div style="margin: 50px auto 0 auto;" class="text-center">
+                        {% csrf_token %}
+                        <div class="">
+                            <img src="{{userInfo.avatar.url}}" alt="avatar"
+                                style="border-radius: 50%; width:190px;height:190px;object-fit:cover">
+                        </div>
+                        <div class="d-flex mt-5" style="font-size: 14px;">
+                            <div
+                                style="background-color: black;  margin: 0 px; padding: 10px 20px 10px 20px">
+                                <a href="{% url 'appUser:editInfo' %}" style="text-decoration: none; color: white;">Edit Info</a>
+                            </div>
+                            <div style="background-color: black; margin: 0 12px; padding: 10px 18px 10px 18px">
+                                <a href="{% url 'change_password' %}"
+                                    style="text-decoration: none; color: white; ">Change
+                                    Password</a>
+                            </div>
+                            <div style="background-color: black; margin: 0; padding: 10px 20px 10px 20px">
+                                <a href="{% url 'password_reset' %}"
+                                    style="text-decoration: none; color: white">Forgot
+                                    Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

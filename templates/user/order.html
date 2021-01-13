@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+{% block block_body %}
+
+
+<div style="padding-top: 85px;"></div>
+<form action="" method="POST">
+<table class="table">
+    <tr>
+        <th>CODE</th>
+        <th>TotalPrice</th>
+        <th>Quantity</th>
+        <th>State</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{order.code}}</td>
+        <td>{{order.totalprice}}</td>   
+        <td>{{order.quantity}}</td>
+        <td>{{order.state}}</td>
+
+    </tr>    
+    {% endfor %}
+    <tr>
+        <td>Toltal</td>
+        <td>{{totalprice}}</td>
+        <td>{{quantity}}</td>
+        <td></td>
+    </tr>
+</table>
+</form>
+{% endblock %}
