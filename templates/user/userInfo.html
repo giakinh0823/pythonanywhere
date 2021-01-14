@@ -36,7 +36,7 @@
                 <div class="form__form--container" style="display: flex; flex-wrap:wrap">
                     <form action="" method="POST" id="createproduct" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="form__form--content" style="max-width:60rem">
+                        <div class="form__form--content" style="max-width:60rem; min-width:40rem">
                             <div class="form__row">
                                 <div class="from__row--field">
                                     <div class="form__text--field">
@@ -137,7 +137,25 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="form__row">
+                                <div class="from__row--field">
+                                    <div class="form__text--field">
+                                        <div class="input__text--wrap">
+                                            <input type="url" name="site" class="input__text--wrap--input"
+                                                placeholder="{{userInfo.site}}" maxlength="200" id="id_site" disabled>
+                                        </div>
+                                        <div class="form__text--title">
+                                            <div class="form__text--label">
+                                                <label for="" class="form__text--label--label">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">SITE</font>
+                                                    </font>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form__row">
                                 <div class="from__row--field">
                                     <div class="form__text--field">
@@ -159,73 +177,6 @@
                                 </div>
                             </div>
 
-                            <!-- Variants -->
-                            <div class="product__dropdown">
-                                <div class="product__dropdown--container" style="width: 40rem; margin-bottom:2rem">
-                                </div>
-                            </div>
-                            <div class="product__details--size">
-                                <div class="product__details--size--layout">
-                                    <fieldset class="product__details--size--fieldset">
-
-
-                                        <ul style="width:100%; display:flex; flex-wrap:wrap;" id="id_variantsForm-size">
-                                            {% for size in sizes %}
-                                            <li class="product__details--color__color--container">
-                                                <div class="product__details--chip">
-                                                    <img alt="" class="product__details--chip--img">
-                                                    <input type="checkbox" name="variantsForm-size" value="{{size.id}}"
-                                                        id="id_variantsForm-size_{{size.id|add:-1}}"
-                                                        class="product__details--chip--radio"
-                                                        onmouseover="changeSize(this.value)">
-                                                    <label for="id_variantsForm-size_{{size.id|add:-1}}"
-                                                        class="product__details--chip--label">
-                                                        <div class="product__details--chip--label--short">
-                                                            <svg width="100%" height="100%">
-                                                                <line y1="100%" x2="100%" stroke="#DADADA"></line>
-                                                                <line y1="100%" x2="100%" stroke="#1B1B1B"
-                                                                    stroke-opacity="0.6" transform="translate(.5 .5)">
-                                                                </line>
-                                                            </svg>
-                                                        </div>
-                                                        <font style="vertical-align: inherit;">
-                                                            <font style="vertical-align: inherit;">{{size.name}}</font>
-                                                        </font>
-                                                    </label>
-                                                </div>
-                                            </li>
-                                            {% endfor %}
-                                        </ul>
-                                        <p style=" height: 2em; "></p>
-                                    </fieldset>
-                                </div>
-                            </div>
-
-                            <div class="product__image" id="createImageProductList">
-                                {% if imageProductList %}
-                                <fieldset class="product__details--color">
-                                    <div class="product__detail--color__lengend--container">
-                                        <legend class="product__details--legend">
-                                            <label for="" class="product__details--legend--primary">
-                                                <font style="vertical-align:inherit;">
-                                                    <font style="vertical-align:inherit;">Image</font>
-                                                </font>
-                                                <font style="vertical-align:inherit;">
-                                                    <font style="vertical-align:inherit;">: </font>
-                                                </font>
-                                            </label>
-                                            <!-- <label for="" class="product__details--legend--secondary">
-                                                <font style="vertical-align:inherit;">
-                                                    <font style="vertical-align:inherit;">03 Xám</font>
-                                                </font>
-                                            </label> -->
-                                        </legend>
-                                    </div>
-                                    <p style=" height: 2em; "></p>
-                                </fieldset>
-                                {% else %}
-                                {% endif %}
-                            </div>
                         </div>
                     </form>
                     <div style="margin: 50px auto 0 auto;" class="text-center">

@@ -1,6 +1,310 @@
 {% extends "base/base.html" %}
 {% block block_body_not_nav %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+{% load static %}
+
+
+<header class="header">
+  <div class="container">
+      <div class="layout">
+          <nav class="header__left">
+              <div class="header__logo">
+                  <a href="{% url 'home:index' %}"><img src={% static 'img/header.svg' %} alt="uniqlo" class="header__logo--img"></a>
+              </div>
+              <div class="header__list header__list--category">
+                  <div>
+                  </div>
+              </div>
+          </nav>
+          <nav class="header__right">
+              
+          </nav>
+      </div>
+  </div>
+</header>
+
+<div style="padding-top: 85px;"></div>
+
+<div class="container">
+  <!-- {{user_form.as_p}}
+  {{profile_form.as_p}} -->
+  <div class="form__layout">
+    <div class="form__container">
+      <div class="form__header">
+        <header class="form__header--header">
+          <h1 class="form__header--h1">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">
+                REGISTRATION OF NEW MEMBERS</font>
+            </font>
+          </h1>
+          <div style="margin-bottom: 2.5rem;"></div>
+          <div class="footer__caption">
+            <h5 class="footer__caption--label">
+              After registration is complete, a registration confirmation email will be sent to the email
+              address you entered. If you have received settings, please check here in advance.
+            </h5>
+          </div>
+        </header>
+      </div>
+      <div class="form__form--layout">
+        <div class="form__form--container">
+          <form action="" method="POST" enctype="multipart/form-data">
+            <div class="row row-cols-md-1 row-cols-lg-2">
+              {% csrf_token %}
+              <div class="col-lg-6">
+                <div class="form__form--content" style="max-width:50rem; min-width:40rem">
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="text" name="username" maxlength="150" required id="id_username"
+                            class="input__text--wrap--input">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="id_productForm-name" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">User name</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="email" name="email" maxlength="254" id="id_email" required
+                            class="input__text--wrap--input">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="id_productForm-name" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Email</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="password" name="password" required id="id_password"
+                            class="input__text--wrap--input">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="id_productForm-name" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">password</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="password" name="password1" required id="id_password1"
+                            class="input__text--wrap--input">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="id_productForm-name" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Confirm Password</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="text" name="first_name" maxlength="256" class="input__text--wrap--input" required
+                            id="id_first_name">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="id_productForm-name" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">First Name</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="text" name="last_name" class="input__text--wrap--input" maxlength="256" required
+                            id="id_last_name">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="id_productForm-name" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Last Name</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="date" name="birth_date" class="input__text--wrap--input" required
+                            id="id_birth_date">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="id_productForm-name" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Birthday</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="text" name="phonenumber" maxlength="20" required id="id_phone_number"
+                            class="input__text--wrap--input">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="id_productForm-name" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">Phone</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="url" name="site" class="input__text--wrap--input" maxlength="200" id="id_site">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">SITE</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="from__row--field">
+                      <div class="form__text--field">
+                        <div class="input__text--wrap">
+                          <input type="text" name="address" maxlength="200" id="id_address"
+                            class="input__text--wrap--input">
+                        </div>
+                        <div class="form__text--title">
+                          <div class="form__text--label">
+                            <label for="" class="form__text--label--label">
+                              <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">LOCATION</font>
+                              </font>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-5 mt-5" style="max-width:20rem">
+                    <label for="id_productForm-image" class="form-label" style="font-size: 1.8rem;">Avatar</label>
+                    <input class="form-control form-control-lg" type="file" name="avatar" accept="image/*"
+                      id="id_avatar">
+                  </div>
+                  <div class="button--third" style="margin: 50px 0;">
+                    <button type="submit" class="button--third--button">Submit</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="">
+                  <div class="d-block mt-1" style="">
+                    <header class="form__header--header">
+                      <h1 class="form__header--h1" style="font-size: 3rem; text-transform:uppercase">
+                        <font style="vertical-align: inherit;">
+                          <font style="vertical-align: inherit;">LOGIN HEAR</font>
+                        </font>
+                      </h1>
+                    </header>
+                    <!-- form đăng kí  -->
+                    <div class="form__row__image">
+                      <div class="from__row--field__image">
+                        <div class="form__text--field__image">
+                          <div class="input__text--wrap__image">
+                          </div>
+                          <div class="form__text--title__image">
+                            <div class="form__text--label__image">
+                              <div style="font-size: 1.5rem; max-width:60rem">
+                                <p>Membership registration is required to use the online store.
+                                  We will give you a coupon when you register as a new member.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- nút đăng kí  -->
+                    <div class="button--third" style="">
+                      <a href="{% url 'register:login' %}" class="button--third--button">Login</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top: 100px;"></div>
+
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-md">
     <a class="navbar-brand" href="{% url 'home:index' %}">Uniqlo</a>
   </div>
@@ -52,8 +356,62 @@
     <input class="form-control"  type="file" name="avatar" accept="image/*" id="id_avatar">
   </div>
   <button type="submit" class="btn btn-outline-dark mb-5">Register</button>
-</form>
+</form> -->
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-md">
+    <a class="navbar-brand" href="{% url 'home:index' %}">Uniqlo</a>
+  </div>
+</nav>
+
+<h1 class="text-center mt-5 mb-4 display-3">Signup</h1>
+
+{% if error %}
+  <div class="alert alert-warning" role="alert">
+    <span>{{ error }}</span> 
+</div>
+{% endif %}
+<form enctype="multipart/form-data" method="POST" class="d-flex flex-column align-items-center mb-5">
+  {% csrf_token %}
+  <div class="mb-3 w-50">
+    <label for="id_username" class="form-label">Username</label>
+    <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_email" class="form-label">Email</label>
+    <input type="email" name="email" autofocus="" required="" id="id_email" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_password" class="form-label">Password</label>
+    <input type="password" name="password" required="" id="id_password" class="form-control">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_password1" class="form-label">Password</label>
+    <input type="password" name="password1" required="" id="id_password1" class="form-control">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_first_name" class="form-label">First Name</label>
+    <input  type="text" name="first_name" maxlength="256" required="" id="id_first_name" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_last_name" class="form-label">Last Name</label>
+    <input  type="text" name="last_name" maxlength="256" required="" id="id_last_name" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_birth_date" class="form-label">Birth Day</label>
+    <input type="text" name="birth_date" required="" id="id_birth_date" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_site" class="form-label">Url</label>
+    <input type="url" name="site" maxlength="200" id="id_site" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_avatar" class="form-label">Default file input example</label>
+    <input class="form-control"  type="file" name="avatar" accept="image/*" id="id_avatar">
+  </div>
+  <button type="submit" class="btn btn-outline-dark mb-5">Register</button>
+</form> -->
 
 {% endblock block_body_not_nav %}
-
-

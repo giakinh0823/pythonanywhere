@@ -1,13 +1,155 @@
 {% extends "base/base.html" %}
+{% load static %}
 {% block block_body_not_nav %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<header class="header">
+  <div class="container">
+      <div class="layout">
+          <nav class="header__left">
+              <div class="header__logo">
+                  <a href="{% url 'home:index' %}"><img src={% static 'img/header.svg' %} alt="uniqlo" class="header__logo--img"></a>
+              </div>
+              <div class="header__list header__list--category">
+                  <div>
+                  </div>
+              </div>
+          </nav>
+          <nav class="header__right">
+              
+          </nav>
+      </div>
+  </div>
+</header>
+
+<div style="padding-top: 150px;"></div>
+<div class="container">
+  <div class="form__layout">
+    <div class="form__container">
+      
+      <div class="form__form--layout">
+        <div class="form__form--container">
+          <div class="row row-cols-md-1 row-cols-lg-2">
+            <div class="col-lg-6">
+              <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="" style="max-width:60rem; min-width:40rem">
+                  <div class="" style="width:100%">
+                    <!-- login -->
+                    <div style="vertical-align: inherit; font-size: 36px;">
+                      <h1 style="font-size: 36px;color: black;">LOGIN</h1>
+                    </div>
+                    <!-- comment dưới login -->
+                    <div style="margin-top: 2rem; margin-bottom: 2rem;font-size: 1.5rem;">
+                      <p>Please enter your registered email address and password.</p>
+                    </div>
+                    <!-- mail address -->
+                    <div>
+                      <div class="form__form--content" style="min-width:40rem; max-width:50rem;">
+                        <div class="form__row">
+                          <div class="from__row--field">
+                            <div class="form__text--field">
+                              <div class="input__text--wrap">
+                                <input  type="text" name="username" autofocus="" required id="id_username"
+                                  class="input__text--wrap--input"
+                                  placeholder="username">
+                              </div>
+                              <div class="form__text--title">
+                                <div class="form__text--label">
+                                  <label for="id_productForm-name" class="form__text--label--label">
+                                    <font style="vertical-align: inherit;">
+                                      <font style="vertical-align: inherit;">UserName
+                                      </font>
+                                    </font>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- password -->
+                        <div class="form__row">
+                          <div class="from__row--field">
+                            <div class="form__text--field">
+                              <div class="input__text--wrap">
+                                <input type="password" name="password" required id="id_password" class="input__text--wrap--input"
+                                  placeholder="********">
+                              </div>
+                              <div class="form__text--title">
+                                <div class="form__text--label">
+                                  <label for="id_productForm-name" class="form__text--label--label">
+                                    <font style="vertical-align: inherit;">
+                                      <font style="vertical-align: inherit;">PASSWORD
+                                      </font>
+                                    </font>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- nút login -->
+                      <div class="button--third" style="margin-top: 30px;">
+                        <button type="submit" class="button--third--button">LOGIN</button>
+                      </div>
+                      <!-- quên mật khẩu -->
+                      <div class="mt-5 mb-5">
+                        <a href="{% url 'password_reset' %}" style="color: black;">IF YOU FORGOT YOUR PASSWORD, CLICK HERE</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-5">
+              <div class="d-block mt-1" style="" >
+                <header class="form__header--header">
+                  <h1 class="form__header--h1" style="font-size: 3rem; text-transform:uppercase">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;">REGISTRATION OF NEW MEMBERS</font>
+                    </font>
+                  </h1>
+                </header>
+                <!-- form đăng kí  -->
+                <div class="form__row__image">
+                  <div class="from__row--field__image">
+                    <div class="form__text--field__image">
+                      <div class="input__text--wrap__image">
+                      </div>
+                      <div class="form__text--title__image">
+                        <div class="form__text--label__image">
+                          <div style="font-size: 1.5rem; max-width:60rem">
+                            <p>Membership registration is required to use the online store.
+                              We will give you a coupon when you register as a new member.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- nút đăng kí  -->
+                <div class="button--third" style="">
+                  <a href="{% url 'register:signup' %}" class="button--third--button">Signup</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="padding-top: 100px;"></div>
+
+<!-- 
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-md">
     <a class="navbar-brand" href="{% url 'home:index' %}">Uniqlo</a>
   </div>
-</nav>
-
-
-<h1 class="text-center mt-5 mb-4 display-3">Login</h1>
+</nav>  -->
+<!-- 
+ <h1 class="text-center mt-5 mb-4 display-3">Login</h1>
 
 {% if error %}
   <div class="mb-3 mt-5 w-100 d-flex justify-content-center align-items-center" role="alert" >
@@ -26,6 +168,26 @@
   </div>
   <a href="{% url 'register:signup' %}" class="mb-3" style="text-decoration: none; color: #212529; font-size: 16px ">Signup new member</a>
   <button type="submit" class="btn btn-outline-dark">login</button>
-</form>
-   
+</form> -->
+
+<!-- 
+{% if error %}
+  <div class="mb-3 mt-5 w-100 d-flex justify-content-center align-items-center" role="alert" >
+    <div class="w-50 alert alert-secondary">{{ error }}</div> 
+  </div>
+{% endif %}
+<form action="" method="POST" class="d-flex flex-column align-items-center">
+  {% csrf_token %}
+  <div class="mb-3 w-50">
+    <label for="id_username" class="form-label">Username</label>
+    <input type="text" name="username" autofocus="" required="" id="id_username" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 w-50">
+    <label for="id_password" class="form-label">Password</label>
+    <input type="password" name="password" required="" id="id_password" class="form-control">
+  </div>
+  <a href="{% url 'register:signup' %}" class="mb-3" style="text-decoration: none; color: #212529; font-size: 16px ">Signup new member</a>
+  <button type="submit" class="btn btn-outline-dark">login</button>
+</form> -->
+
 {% endblock block_body_not_nav %}

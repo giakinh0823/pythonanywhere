@@ -1,13 +1,21 @@
-
 <div id="listcomment">
     {% for rs in comments %}
-    <div style="text-decoration:none;font-size:1.5rem;margin-top:2rem;"><a href="#">{{rs.user }}</a></div>
-    <div style="padding-bottom:0;">{{rs.subject }}</div>
-    <div style="padding-bottom:none;border-bottom:none;margin:0,0,0,0;font-size:1.5rem;">
-        <p style="margin-bottom:0;">{{rs.content }}</p>
+    <div class="mb-3 w-100"
+        style="border-bottom:1px solid #dadada; background-color:#f0f0f038">
+        <div class="p-3" style="display: flex;">
+            <div>
+                <div class="mb-2" style="font-size: 1.6rem; font-weight:500">
+                    {{rs.userProfile.first_name}} {{rs.userProfile.last_name}}</a></div>
+                <!-- <div style="padding-bottom:0;">
+            <p>{{rs.subject }}</p></div> -->
+                <div class="mb-3" style="font-size:1.6rem; color:#52575c; ">
+                    <p style="margin-bottom:0;">{{rs.content}}</p>
+                </div>
+            </div>
+            <div class="ms-auto" style="min-width: fit-content;">
+                {{rs.time_create }}
+            </div>
+        </div>
     </div>
-    <div
-        style="margin-top:0rem;font-size: 1rem;color: rgba(0,0,0,.54);line-height: 1.2;border-bottom: 1px solid rgba(0,0,0,.09);">
-        {{rs.time_create }}</div>
     {%endfor %}
 </div>

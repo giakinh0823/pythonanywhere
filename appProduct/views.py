@@ -1,3 +1,4 @@
+from register.models import UserProfile
 from typing import cast
 from django.forms.models import modelform_factory
 from django.http.response import HttpResponse, JsonResponse
@@ -414,7 +415,7 @@ def getnameColorEdit(request, product_pk):
         color = Color.objects.get(id=request.POST.get('id'))
         return JsonResponse({'name': color.name})
     
-    
+@login_required
 def addcomment(request, product_pk):
     if request.is_ajax:
         form=PostForm(request.POST)
@@ -425,6 +426,7 @@ def addcomment(request, product_pk):
             data.user=request.user
             product=Product.objects.get(pk=product_pk)
             data.product=product
+            data.userProfile = UserProfile.objects.get(user = request.user)
             data.save()
             comments=Post.objects.filter(product=product_pk)
             return render(request, 'product/addcomment.html', {'comments' :comments})  

@@ -34,68 +34,6 @@
 </script>
 <body>
     {% block block_body_not_nav %}
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home:index' %}">Uniqlo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav w-100">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home:index' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'appProduct:product' %}">Product</a>
-                    </li>
-                    <li class="nav-item  ms-auto">
-                        <a class="nav-link active" aria-current="page" href="{% url 'order:basket' %}">Cart
-                            <span id="cartquantity">
-                                {% if request.session.quantity > 0 %}
-                                {{request.session.quantity}}
-                                {% endif %}
-                            </span></a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'appProduct:productuser' %}">My
-                            product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="{% url 'appProduct:createproduct' %}">Create Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'appUser:order' %}">Order</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="{% url 'appUser:userInfo' %}">{{user.username }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <form action="{% url 'register:logout' %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-outline-dark">Logout</button>
-                        </form>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'register:login' %}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="{% url 'register:signup' %}">Signup</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{% url 'password_reset' %}" class="nav-link active" aria-current="page">Forget</a>
-                    </li>
-                    {%endif%}
-                </ul>
-            </div>
-        </div>
-    </nav>-->
     <header class="header">
         <div class="container">
             <div class="layout">
