@@ -1,6 +1,4 @@
-{% extends "base/base.html" %}
-{% block block_body %}
-{% load static %}
+{% extends "base/base.html" %} {% block block_body %} {% load static %}
 
 <!-- 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -52,180 +50,172 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <div class="container">
 
-  <form action="">
-    {{form.as_p}}
-  </form>
+    {% comment %} <form action="">
+        {{form.as_p}}
+    </form> {% endcomment %}
 
 
-  <div class="form__layout">
-    <div class="form__container">
-      <div class="form__header">
-        <header class="form__header--header">
-          <h1 class="form__header--h1">
-            <font style="vertical-align: inherit;">
-              <font style="vertical-align: inherit;">Edit Profile</font>
-            </font>
-          </h1>
-        </header>
-      </div>
-      <div class="form__form--layout">
-        <div class="form__form--container">
-          <form action="" method="POST" enctype="multipart/form-data">
-            <div style="display: flex; flex-wrap:wrap">
-              {% csrf_token %}
-              <div class="form__form--content" style="max-width:60rem; min-width:40rem">
-                <div class="form__row">
-                  <div class="from__row--field">
-                    <div class="form__text--field">
-                      <div class="input__text--wrap">
-                        <input type="text" name="productForm-name" maxlength="256" required="" id="id_productForm-name"
-                          class="input__text--wrap--input" placeholder="{{user}}" disabled>
-                      </div>
-                      <div class="form__text--title">
-                        <div class="form__text--label">
-                          <label for="id_productForm-name" class="form__text--label--label">
+    <div class="form__layout">
+        <div class="form__container">
+            <div class="form__header">
+                <header class="form__header--header">
+                    <h1 class="form__header--h1">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Edit Profile</font>
+                        </font>
+                    </h1>
+                </header>
+            </div>
+            <div class="form__form--layout">
+                <div class="form__form--container">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div style="display: flex; flex-wrap:wrap">
+                            {% csrf_token %}
+                            <div class="form__form--content" style="max-width:60rem; min-width:40rem">
+                                <div class="form__row">
+                                    <div class="from__row--field">
+                                        <div class="form__text--field">
+                                            <div class="input__text--wrap">
+                                                <input type="text" name="productForm-name" maxlength="256" required="" id="id_productForm-name" class="input__text--wrap--input" placeholder="{{user}}" disabled>
+                                            </div>
+                                            <div class="form__text--title">
+                                                <div class="form__text--label">
+                                                    <label for="id_productForm-name" class="form__text--label--label">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">User name</font>
                             </font>
                           </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row">
-                  <div class="from__row--field">
-                    <div class="form__text--field">
-                      <div class="input__text--wrap">
-                        <input type="text" name="productForm-name" maxlength="256" required="" id="id_productForm-name"
-                          class="input__text--wrap--input" placeholder="First name" value="{{userProfile.first_name}}">
-                      </div>
-                      <div class="form__text--title">
-                        <div class="form__text--label">
-                          <label for="id_productForm-name" class="form__text--label--label">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="from__row--field">
+                                        <div class="form__text--field">
+                                            <div class="input__text--wrap">
+                                                <input type="text" name="first_name" value="{{userProfile.first_name}}" maxlength="256" class="input__text--wrap--input" required="" id="id_first_name">
+                                            </div>
+                                            <div class="form__text--title">
+                                                <div class="form__text--label">
+                                                    <label for="id_productForm-name" class="form__text--label--label">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">First Name</font>
                             </font>
                           </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row">
-                  <div class="from__row--field">
-                    <div class="form__text--field">
-                      <div class="input__text--wrap">
-                        <input type="text" name="productForm-name" maxlength="256" required="" id="id_productForm-name"
-                          class="input__text--wrap--input" placeholder="Last name" value="{{userProfile.last_name}}">
-                      </div>
-                      <div class="form__text--title">
-                        <div class="form__text--label">
-                          <label for="id_productForm-name" class="form__text--label--label">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="from__row--field">
+                                        <div class="form__text--field">
+                                            <div class="input__text--wrap">
+                                                <input type="text" name="last_name" value="{{userProfile.last_name}}" class="input__text--wrap--input" maxlength="256" required="" id="id_last_name">
+                                            </div>
+                                            <div class="form__text--title">
+                                                <div class="form__text--label">
+                                                    <label for="id_productForm-name" class="form__text--label--label">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">Last Name</font>
                             </font>
                           </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row">
-                  <div class="from__row--field">
-                    <div class="form__text--field">
-                      <div class="input__text--wrap">
-                        <input type="date" name="birth_date" required="" id="id_birth_date"
-                          class="input__text--wrap--input" value="{{userProfile.birth_date|date:'Y-m-d'}}">
-                      </div>
-                      <div class="form__text--title">
-                        <div class="form__text--label">
-                          <label for="id_productForm-name" class="form__text--label--label">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="from__row--field">
+                                        <div class="form__text--field">
+                                            <div class="input__text--wrap">
+                                                <input type="date" name="birth_date" class="input__text--wrap--input" value="{{userProfile.birth_date|date:'Y-m-d'}}" required="" id="id_birth_date">
+                                            </div>
+                                            <div class="form__text--title">
+                                                <div class="form__text--label">
+                                                    <label for="id_productForm-name" class="form__text--label--label">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">Birthday</font>
                             </font>
                           </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row">
-                  <div class="from__row--field">
-                    <div class="form__text--field">
-                      <div class="input__text--wrap">
-                        <input type="text" name="productForm-name" maxlength="256" required="" id="id_productForm-name"
-                          class="input__text--wrap--input" value="{{userProfile.phonenumber}}">
-                      </div>
-                      <div class="form__text--title">
-                        <div class="form__text--label">
-                          <label for="id_productForm-name" class="form__text--label--label">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="from__row--field">
+                                        <div class="form__text--field">
+                                            <div class="input__text--wrap">
+                                                <input type="text" name="phonenumber" maxlength="256" required id="id_phone_number" class="input__text--wrap--input" value="{{userProfile.phonenumber}}">
+                                            </div>
+                                            <div class="form__text--title">
+                                                <div class="form__text--label">
+                                                    <label for="id_productForm-name" class="form__text--label--label">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">Phone</font>
                             </font>
                           </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row">
-                  <div class="from__row--field">
-                    <div class="form__text--field">
-                      <div class="input__text--wrap">
-                        <input type="email" name="productForm-name" maxlength="256" required="" id="id_productForm-name"
-                          class="input__text--wrap--input" placeholder="url" value="{{userProfile.site}}">
-                      </div>
-                      <div class="form__text--title">
-                        <div class="form__text--label">
-                          <label for="" class="form__text--label--label">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="from__row--field">
+                                        <div class="form__text--field">
+                                            <div class="input__text--wrap">
+                                                <input type="url" name="site" class="input__text--wrap--input" value="{{userProfile.site}}" maxlength="200" id="id_site">
+                                            </div>
+                                            <div class="form__text--title">
+                                                <div class="form__text--label">
+                                                    <label for="" class="form__text--label--label">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">SITE</font>
                             </font>
                           </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row">
-                  <div class="from__row--field">
-                    <div class="form__text--field">
-                      <div class="input__text--wrap">
-                        <input type="email" name="productForm-name" maxlength="256" required="" id="id_productForm-name"
-                          class="input__text--wrap--input" value="{{userProfile.phonenumber}}">
-                      </div>
-                      <div class="form__text--title">
-                        <div class="form__text--label">
-                          <label for="" class="form__text--label--label">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="from__row--field">
+                                        <div class="form__text--field">
+                                            <div class="input__text--wrap">
+                                            
+                                                <input type="text" name="address" maxlength="200" id="id_address" class="input__text--wrap--input" value="{{userProfile.address}}">
+                                            </div>
+                                            <div class="form__text--title">
+                                                <div class="form__text--label">
+                                                    <label for="" class="form__text--label--label">
                             <font style="vertical-align: inherit;">
                               <font style="vertical-align: inherit;">LOCATION</font>
                             </font>
                           </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin: 0 auto; margin-top: 50px; " class="text-center">
+                                <div class="">
+                                    <img src="{{userProfile.avatar.url}}" alt="avatar" style="border-radius: 50%; width:190px;height:190px;object-fit:cover">
+                                </div>
+                                <div class="" style="font-size: 14px; margin: 30px auto">
+                                    <input class="form-control" type="file" name="avatar" accept="image/*" id="id_avatar">
+                                </div>
+                                <div class="" style="font-size: 14px; margin: 30px auto">
+                                    <button type="submit" style="text-decoration: none; background-color: black; color: white; margin: 0 px; padding: 10px 20px 10px 20px">Submit</button>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                    </form>
                 </div>
-              </div>
-              <div style="margin: 0 auto; margin-top: 50px; " class="text-center">
-                <div class="">
-                  <img src="{{userProfile.avatar.url}}" alt="avatar"
-                    style="border-radius: 50%; width:190px;height:190px;object-fit:cover">
-                </div>
-                <div class="" style="font-size: 14px; margin: 30px auto">
-                  <input class="form-control" type="file" name="avatar" accept="image/*" id="id_avatar">
-                </div>
-                <div class="" style="font-size: 14px; margin: 30px auto">
-                  <button type="submit"
-                    style="text-decoration: none; background-color: black; color: white; margin: 0 px; padding: 10px 20px 10px 20px">Submit</button>
-                </div>
-              </div>
             </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 {% endblock %}
