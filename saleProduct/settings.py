@@ -30,9 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com']
 
-# ALLOWED_HOSTS = []
-
-
 
 # Application definition
 
@@ -143,6 +140,8 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
+
+    
 
 MEDIA_URL = '/media/'
 
