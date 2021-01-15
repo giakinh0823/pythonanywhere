@@ -1,1 +1,1 @@
-web: python saleProduct/manage.py collectstatic --noinput; bin/gunicorn_django --workers=4 --bind=0.0.0.0:$PORT saleProduct/settings.py 
+web: gunicorn saleProduct.wsgi --log-file -
