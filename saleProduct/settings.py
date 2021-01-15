@@ -161,3 +161,18 @@ EMAIL_HOST_PASSWORD = '123@123a'
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+AWS_ACCESS_KEY_ID = 'access-id'
+AWS_SECRET_ACCESS_KEY = 'secret-key'
+AWS_STORAGE_BUCKET_NAME = 'bucket-name'
+AWS_PRELOAD_METADATA = True
+
+STATIC_URL = 'https://bucket-name.s3.amazonaws.com/static/'
+ADMIN_MEDIA_PREFIX = 'https://bucket-name.s3.amazonaws.com/static/admin/'
+
+MEDIA_URL = 'https://bucket-name.s3.amazonaws.com/media/'
+STATIC_URL = 'https://bucket-name.s3.amazonaws.com/static/'
