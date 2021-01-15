@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url
 import django_heroku
+import psycopg2
 
 
-# django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -67,10 +68,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 ROOT_URLCONF = 'saleProduct.urls'
+
+WSGI_APPLICATION = 'saleProduct.wsgi.application'
+
 
 TEMPLATES = [
     {
@@ -88,7 +90,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'saleProduct.wsgi.application'
 
 
 # Database
@@ -185,3 +186,8 @@ LOGGING = {
         },
     },
 }
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+django_heroku.settings(locals())
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_project.settings')
