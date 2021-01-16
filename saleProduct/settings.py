@@ -22,7 +22,7 @@ import psycopg2
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT  = os.path.join(BASE_DIR , 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -141,7 +141,9 @@ USE_TZ = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATIC_URL = '/static/'
 
@@ -188,4 +190,11 @@ LOGGING = {
 
 
 django_heroku.settings(locals())
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'saleProduct.settings')
+
+
+
+from django.core.wsgi import get_wsgi_application
+from dj_static import Cling
+
+application = Cling(get_wsgi_application())
